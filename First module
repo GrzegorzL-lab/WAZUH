@@ -1,10 +1,81 @@
 # 1/8 of WAZUH expert certfied training by Sekurak, bullet points (initial theory oriented segment):
+
 - Various related terms explanation: SIM/SEM/SIEM/XDR/OSSEC/C&C/MITRE-table/TTP/IOC
 - Systems requirements for clusters based on agent numbers
 - Documentation and versions of WAZUH, specific changes over time (v4.6-4.10), updates guidelines
 - Architecture details and interactions, ports, parameters, filestructures, installation via VPS/OVA/docker/script
 - Startup and default modules overview for -a installation, initialising sample date
 - Explore Module -> Discover submodule -> Index patterns and fields filtering
-- Endpoint Security Module
+- Endpoint Security Module overview
+
+Practical Part:
+
 - Agents management - > Deploying new agent and coming up with specific endpoint groups beforehand
-- 
+(agents can be Linux/Windows(MSI packages, feasible for auto deployment)/macOS(intel/Apple silicon)
+  - Agent name can be inherited from the OS specifics, so no need to type in manually
+  - Instalation boils down to copying of the generated wget command in this module to execute on the endpoint
+  - To startup the agent, use systemctl to reload the daemon
+    - Agent deployment on Windows analogous to linux one, run the provided command to slap into powershell of virtual agent endpoint
+    - Run WazuhSVC
+
+
+
+
+
+
+
+
+
+
+
+
+Blurb from the training in Polish below:
+
+
+Definicje:
+
+SIM - Security information management (rodzaj oprogramowania gromadzącego logi)
+
+SEM - Security event management (zarządzanie niedawnymi zdarzeniami już z możliwą wizualizacją)
+
+SIEM - SIM+SEM system łączący gromadzenie logów z możliwością analityki, monitorowania sytuacji na bieżąco. Podstawa dla działania SOCa. Generacja alertów.
+
+XDR - System wykrywania zagrożeń i reagowania na nie na end-pointach (końcówkach), taki system przyjmuje jakieś logi lub eventy - to jest monitorowane i wdrażana jest ochrona na końcówce + informacja do operatora o zdarzeniu
+
+Czym to się różni od EDR?  -> analizą behawioralną, so to dokładniejsze systemy wykorzystujące np.. AI
+
+WAZUH jest SIEMem, ale ma też możliwości działania w trybie XDR 
+
+OSSEC - rozwiązanie będące dziadkiem WAZUHa (atomic OSSEC oznacza że jest doładowany AI)
+
+Głównymi cechami WAZUHa są:
+	- System wykrywania zagrożeń na bazie logów (Host Intrustion Detection System)
+	- Wykrywanie podatności (Vulnerability Detection)
+	- Analiza logów
+	- Reagowania na incydenty (Incident Response)
+	- Badanie integralności systemu plików (File integrity Monitoring)
+	- Bezpieczeństwo chmury
+	- Bezpieczeństwo kontenerów (Container Security)
+	- Zapewnienie zgodności z normami i prawem (Regulatory Compliance)
+
+Tablica MITRE - zawiera techniki, taktyki i procedury
+
+Współczynnik TTP - zachowanie naszego adwersarza/cyberzbója (Tactics+Techniques+Procedures)
+	
+Wskaźniki IOC (Identificators of compromise -> Wskaźniki zagrożeń/naruszeń)  to np.. 
+	- Anomalie w privilage user access control
+	- Dziwne aktywności logowania/bruteforcy/zapytania DNS
+	- Anomalie geolokacyjne
+	- Zwiększony ruch w dyskach
+	- Nietwypowe aktualizacje
+	- Dziwne wielkości ramek/pakietów
+	- Zmiany w profilach
+	- DDoS
+	- Problemy z usługami
+	- Podpisane dokumenty itd..
+
+Obecnie WAZUH serwer stawialny jest wyłącznie na dystrybucjach linuxówych (RHEL/CENTOS/Debian/Amazon)
+Wersje WAZUHa powinno się aktualizować krokowo, aby np.. Dashboard się nie wysypał - przeskakiwanie wersji to pchanie się w gips
+Architektura:
+Generalnie dwie główne części ( Agent / komponenty centralne)
+Komponenty centralne -> Serwer(worker), jeden z nich jest masterem w klastrze - ma za zadanie anlizować zebrane dane od agentów (przetawrza z pomocą dekodera), a zdekodowane logi podlegają pod Reguły - . Mamy tu też indexery (silnik wyszukiwania pełnotekstowego), który przechowuje logi które WAZUH przedstawia
