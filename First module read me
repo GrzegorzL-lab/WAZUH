@@ -1,0 +1,6 @@
+# 1/8 of WAZUH expert certfied training by Sekurak, bullet points (initial theory oriented segment):
+- Various related terms explanation: SIM/SEM/SIEM/XDR/OSSEC/C&C/MITRE-table/TTP/IOC
+- Systems requirements for clusters based on agent numbers
+- Documentation and versions of WAZUH, specific changes over time (v4.6-4.10), updates guidelines
+- Architecture details and interactions
+- 
