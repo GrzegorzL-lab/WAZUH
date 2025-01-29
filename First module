@@ -2,5 +2,9 @@
 - Various related terms explanation: SIM/SEM/SIEM/XDR/OSSEC/C&C/MITRE-table/TTP/IOC
 - Systems requirements for clusters based on agent numbers
 - Documentation and versions of WAZUH, specific changes over time (v4.6-4.10), updates guidelines
-- Architecture details and interactions
+- Architecture details and interactions, ports, parameters, filestructures, installation via VPS/OVA/docker/script
+- Startup and default modules overview for -a installation, initialising sample date
+- Explore Module -> Discover submodule -> Index patterns and fields filtering
+- Endpoint Security Module
+- Agents management - > Deploying new agent and coming up with specific endpoint groups beforehand
 - 
