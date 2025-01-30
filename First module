@@ -17,6 +17,8 @@ Practical Part:
   - To startup the agent, use systemctl to reload the daemon
     - Agent deployment on Windows analogous to linux one, run the provided command to slap into powershell of virtual agent endpoint
     - Run WazuhSVC
+- ossec.conf analysis of contents post default installation
+- Agentless mode config explanation
 
 
 
