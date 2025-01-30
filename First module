@@ -1,4 +1,4 @@
-# 1/8 of WAZUH expert certfied training by Sekurak, bullet points (initial, mostly theory oriented segment):
+# 1/8 of WAZUH expert certfied training by Sekurak, bulletpoints
 
 - Various related terms explanation: SIM/SEM/SIEM/XDR/OSSEC/C&C/MITRE-table/TTP/IOC
 - Systems requirements for clusters based on agent numbers
@@ -9,25 +9,21 @@
 - Endpoint Security Module overview
 
 Practical Part:
+- Environment preparation
+- Server installation
+- Installing agent for Ubuntu/MS Windows and in Agentless mode
+
+Notes for the practical part:
 
 - Agents management - > Deploying new agent and coming up with specific endpoint groups beforehand
 (agents can be Linux/Windows(MSI packages, feasible for auto deployment)/macOS(intel/Apple silicon)
-  - Agent name can be inherited from the OS specifics, so no need to type in manually
-  - Instalation boils down to copying of the generated wget command in this module to execute on the endpoint
-  - To startup the agent, use systemctl to reload the daemon
-    - Agent deployment on Windows analogous to linux one, run the provided command to slap into powershell of virtual agent endpoint
-    - Run WazuhSVC
+- Agent name can be inherited from the OS specifics, so no need to type in manually
+- Instalation boils down to copying of the generated wget command in this module to execute on the endpoint
+- To startup the agent, use systemctl to reload the daemon
+- Agent deployment on Windows analogous to linux one, run the provided command to slap into powershell of virtual agent endpoint
+- Run WazuhSVC
 - ossec.conf analysis of contents post default installation
 - Agentless mode config explanation
-
-
-
-
-
-
-
-
-
 
 
 
